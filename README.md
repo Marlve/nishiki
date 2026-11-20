@@ -1,6 +1,6 @@
 # Nishiki
 
-A desktop app for Claude, built on the Claude Agent SDK. Plans you can read, notes that last, and subagents you can see.
+The agent harness for Claude Code, built on the Claude Agent SDK. Plans you can read, notes that last, and subagents you can see.
 
 [![Latest release](https://img.shields.io/github/v/release/Marlve/nishiki)](https://github.com/Marlve/nishiki/releases/latest)
 ![Platform: Windows](https://img.shields.io/badge/platform-Windows-blue)
