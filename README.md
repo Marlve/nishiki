@@ -1,72 +1,76 @@
-# Nishiki
+<p align="center">
+  <img src="docs/images/icon.png" alt="Nishiki" width="96">
+</p>
 
-The agent harness for Claude Code, built on the Claude Agent SDK. Plans you can read, notes that last, and subagents you can see.
+<h1 align="center">Nishiki</h1>
 
-[![Latest release](https://img.shields.io/github/v/release/Marlve/nishiki)](https://github.com/Marlve/nishiki/releases/latest)
-![Platform: Windows](https://img.shields.io/badge/platform-Windows-blue)
+<p align="center">The agent harness for Claude Code.</p>
+
+<p align="center">
+  <a href="https://github.com/Marlve/nishiki/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/Marlve/nishiki"></a>
+  <img alt="Platform: Windows" src="https://img.shields.io/badge/platform-Windows-blue">
+</p>
 
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="docs/images/hero-dark.png">
   <img alt="A Nishiki chat that added rate limiting: the run summary lists the changed files and what to test." src="docs/images/hero-light.png">
 </picture>
 
-## What it is
-
-Nishiki runs Claude Code underneath, so your CLAUDE.md files, skills, hooks, plugins, MCP servers and permission rules all work as they do in the terminal. Nishiki adds a window around it: cards for plans, questions and permissions, a graph of notes, and a live view of the subagents Claude starts.
-
-- **Plans as cards.** In Plan mode Claude proposes steps, who does each one, and a diagram of how they connect. You approve, edit or reject before anything changes.
-- **Notes that last.** Claude writes what it learns as markdown notes, and each message recalls the ones that match. The Graph tab draws them.
-- **Subagents you can see.** Each subagent shows as a koi with its own panel. The agent tree shows who started whom, with each prompt and tool call.
-- **Run summaries.** A turn that changed files ends with what was done, the changed files as diffs, and what to test.
-- **Model and effort per chat.** Pick both from the composer.
-- **Light, dark and eight koi themes.**
+Nishiki is a desktop app for Claude Code. Claude Code runs underneath, so your CLAUDE.md files, skills, hooks, plugins, MCP servers and permission rules work just as they do in the terminal. Nishiki puts a window around it: plans, questions and permission requests show up as cards, and you get a graph of notes and a live view of every subagent.
 
 ## Install
 
 1. Download `Nishiki-Setup-<version>.exe` from the [latest release](https://github.com/Marlve/nishiki/releases/latest) and run it.
-2. Open Nishiki, then **Settings › Account** and sign in. Nishiki never holds your credentials: it runs Claude Code's own `claude auth login`.
+2. Open **Settings › Account** and sign in with your Claude account.
 3. Add a folder in the sidebar and start a chat.
+
+> [!NOTE]
+> Claude Code comes with Nishiki, so you don't install it separately. Sign-in runs Claude Code's own `claude auth login`, and Nishiki never sees your credentials. Nishiki updates itself.
 
 ## Features
 
-### Plans
+### Plans you approve
 
-Claude plans in read-only mode, then shows the steps as a card. Each step names who does it (Nishiki or a subagent type), and the diagram follows the work as steps go from To do to Now to Done. Approving saves the plan to your notes.
+In Plan mode, Claude works read-only and then shows its steps as a card. Each step says who does it, and a diagram shows how the steps connect. You can approve, edit or reject the plan before any file changes. Switch between Plan and Auto with `Alt+M`.
 
 ![A plan card listing four steps, two by Explore subagents and two by Nishiki, all done, with the plan diagram below.](docs/images/plan.png)
 
-Switch between Plan and Auto with `Alt+M`.
+### Subagents you can see
 
-### Subagents and the agent tree
-
-Open **Agents** in a chat to see every subagent and background command, who started it, what it was asked and what it called. Running ones can be stopped from the same place.
+**Agents** shows every subagent and background command: who started it, what it was asked and what it called. You can stop any of them from there.
 
 ![The Agents modal: a tree with Nishiki and two Explore subagents, and the prompt and tool calls of the selected agent.](docs/images/agents.png)
 
-### Notes
+### Notes that last
 
-Notes are markdown files outside your repo, shared by every worktree of it. The Graph tab shows how they link, and Claude searches them before it plans.
+Claude saves what it learns as markdown notes kept outside your repo, and every worktree of the repo shares them. Each message brings back the notes that match it. The **Graph** tab draws how the notes link.
 
 ![The Graph tab: five notes in a repo, linked by the notes they mention.](docs/images/notes.jpg)
 
-### Model and effort
+### Run summaries
 
-The composer chip shows the chat's model and effort and opens one menu for both. Settings › Models sets the default for new chats.
+A turn that changes files ends with a short card: what was done, the diffs, and what to test.
 
-![The composer menu listing models, with effort levels Low to Max below.](docs/images/model.png)
+### Terminal and Editor
 
-### Themes
+Real shells and a code editor sit in tabs next to the chat. Press `Ctrl+O` on the Editor tab to jump to a file.
 
-Light, dark or follow the system, in eight koi colours.
+### Model, effort and themes
 
-![Settings, Appearance: mode switch and the eight koi themes.](docs/images/appearance.png)
+Pick the model and effort for each chat from the composer. Appearance comes in light, dark or system mode, with eight koi colours.
+
+| | |
+| --- | --- |
+| ![The composer menu listing models, with effort levels Low to Max below.](docs/images/model.png) | ![Settings, Appearance: mode switch and the eight koi themes.](docs/images/appearance.png) |
 
 ## Keyboard
 
 | Keys | Does |
 | --- | --- |
+| `Ctrl+N` | New chat in this folder |
 | `Alt+M` | Switch Plan and Auto |
 | `Esc` | Stop the turn |
+| `Ctrl+1` to `Ctrl+4` | Chat, Graph, Terminal, Editor |
 | `Ctrl+\` | Focus mode |
 
-Rebind them in Settings › Keybinds.
+You can change any of these in **Settings › Keybinds**.
